@@ -1,7 +1,7 @@
 var renderer;  // A three.js WebGL or Canvas renderer.
 var scene;     // The 3D scene that will be rendered, containing the model.
 var camera;    // The camera that takes the picture of the scene.
-
+var loader
 var model; // The three.js object that represents the model.
 
 var rotateX = 0;   // rotation of model about the x-axis
@@ -73,13 +73,32 @@ function installModel(file, bgColor) {
     }
     renderer.setClearColor(bgColor);
     render();
-    var loader = new THREE.JSONLoader();
+    loader = new THREE.JSONLoader();
     loader.load("http://127.0.0.1:8000/" + file, modelLoadedCallback);
 }
 
 function render() {
     renderer.render(scene, camera);
 }
+
+function changeColor(hexa){
+model.traverse(function(child) {
+    if(child instanceof THREE.Mesh){
+           var faces= child.geometry.faces.length;
+        for ( var i = 0; i < faces; i++ ) {
+            var face = child.geometry.faces[ i ];
+            face.color.setHex(hexa);
+        }
+    }
+ });
+
+//model.children[0].material.color.set(hexa);
+ //model.material.color.setHex(hexa);
+//alert(hexa);
+}
+
+
+
 
 function doKey(evt) { 
     var rotationChanged = true;

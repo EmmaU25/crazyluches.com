@@ -4,12 +4,16 @@
 	<title>Crazyluches.com</title>
 	<link rel="icon" href="http://127.0.0.1:8000/img/monkey.ico">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/create.css')}}">
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r58/three.min.js"></script>
-<script type="text/javascript" src="https://s.cdpn.io/25480/OrbitControls.js"></script>
-<script type="text/javascript" src="{{ asset('js/3dcreate.js')}}">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r58/three.min.js"></script>
+
+	<script type="text/javascript" src="https://s.cdpn.io/25480/OrbitControls.js"></script>
+	<script type="text/javascript" src="{{ asset('js/3dcreate.js')}}">
 </script>
 </head>
 <body onload="init()" bgcolor="#CCC">
@@ -63,13 +67,50 @@
                 </div>
             </div>
         </nav>
-<div style="float:left">
-   <canvas width=600 height=600 id="cnvs" style="background-color:black"></canvas>
-   <p>Except for the first two, the models are from the three.js download.</p> 
-</div>
+
+        <div class="container">
+        	<div class="row">
+        		<div class="col-md-4">
+        			<div>
+        				<span><strong>Crazyluches Maker</strong></span>
+        				<p>Construye tu peluche escogiendo tus colores favoritos, y tamaño</p>
+        			</div>
+
+        			<div class="opt-menu">
+	        				<button class="btn btn-primary menu-btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+						    <i class="fa fa-folder" aria-hidden="true"></i> Modelos
+						  </button>
+						  <div class="collapse" id="collapseExample">
+						  <div class="card card-body">
+							<button type="button" onclick="installModel('fnaf.js',0xffffff)">Caballo</button>
+							<button type="button" onclick="installModel('barril.js',0)">Barril</button>    
+						  </div>
+						</div>
+        			</div>
+
+        			<div class="opt-menu">
+        				<button class="btn btn-primary menu-btn" type="button" data-toggle="collapse" data-target="#colors" aria-expanded="false" aria-controls="colors">
+						    <i class="fa fa-eyedropper" aria-hidden="true"></i> Colores
+						 </button>
+						 <div class="collapse" id="colors">
+						  <div class="card card-body">
+							<button type="button" onclick="changeColor(0x666666)">amarillo</button>
+							  
+						  </div>
+						</div>
+        			</div>
+        			
+        		</div>
+        		<div class="col-md-5">
+        			<canvas width=600 height=600 id="cnvs" style="background-color:white"></canvas>
+   					<p class="msg-foot">Diseña tu peluche y envianoslo.</p> 
+        		</div>
+        		<div class="col-md-3"></div>
+        	</div>
+        </div>
+
 <p style="color:#A00; font-weight: bold" id="message"></p>
-<button type="button" onclick="installModel('fnaf.js',0)">Caballo</button>
-<button type="button" onclick="installModel('barril.js',0)">Barril</button>
+
 </body>
 
 
