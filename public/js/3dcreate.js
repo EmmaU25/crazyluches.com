@@ -75,7 +75,13 @@ function installModel(file, bgColor) {
     render();
     filename = file;
     loader = new THREE.JSONLoader();
-    loader.load("http://127.0.0.1:8000/" + file, modelLoadedCallback);
+    loader.load("http://crazyluches.test/" + file, modelLoadedCallback);
+
+    var modelo = "Caballo";
+    if (file == "barril.js") {
+        modelo = "Barril";
+    }
+    document.getElementById("txtModelo").value = modelo; // Para setear en el input
 }
 
 function render() {
@@ -91,6 +97,11 @@ object.updateMatrix();
 //model.children[0].material.materials[0].color.b=25;
  //model.material.color.setHex(hexa);
 //alert(hexa);
+    var color = "Azul";
+    if (hexa == 0xFF00DE) {
+        color = "Amarrillo";
+    }
+    document.getElementById("txtColor").value = color; // Para setear en el input
 }
 
 

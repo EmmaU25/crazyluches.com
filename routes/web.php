@@ -21,3 +21,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/create', 'creates@index')->name('creates');
+
+Route::get('/pedido', 'HomeController@index');
+
+Route::resource('pedido', 'PedidoController');

@@ -1,0 +1,5 @@
+vendor/
+.vs/
+composer.lock
+.env
+composer.phar

@@ -14,12 +14,13 @@
 
 	<script type="text/javascript" src="https://s.cdpn.io/25480/OrbitControls.js"></script>
 	<script type="text/javascript" src="{{ asset('js/3dcreate.js')}}">
+	<script type="text/javascript" src="{{ asset('js/pedido.js')}}">
 </script>
 </head>
 <body onload="init()" bgcolor="#CCC">
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ route('home') }}">
                     Crazyluches.com
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -69,6 +70,7 @@
         </nav>
 
         <div class="container">
+		<form method="POST" action="{{ route('pedido.store') }}"  role="form">
         	<div class="row">
         		<div class="col-md-4">
         			<div>
@@ -100,14 +102,19 @@
 						</div>
         			</div>
 
-					                    <div class="opt-menu">
+					<div class="opt-menu">
                         <button class="btn btn-primary menu-btn" type="button" data-toggle="collapse" data-target="#info" aria-expanded="false" aria-controls="colors">
                             <i class="fa fa-info" aria-hidden="true"></i> Información adicional
                          </button>
                          <div class="collapse" id="info">
                           <div class="card card-body">
                             <label>¡Cuéntanos que más quieres!</label>
-                            <textarea class="form-control" style="resize: none;" row="3" id="txtMasInfo"></textarea>
+                            <textarea class="form-control" style="resize: none;" row="3" id="txtMasInfo" name="info"></textarea>
+							<input type="hidden" value="Caballo" id="txtModelo" name="modelo"/>
+							<input type="hidden" value="Amarillo" id="txtColor" name="color"/>
+							<input type="hidden" value="Normal" id="txtTamano" name="tamano"/>
+							<input type="hidden" value="0" id="txtTotal" name="total"/>
+							<input type="hidden" value='{{ Auth::user()->id }}' name="user_id" id="txtIdUsuario"/>
                           </div>
                         </div>
                     </div>
@@ -119,7 +126,7 @@
                          <div class="collapse" id="enviar">
                           <div class="card card-body">
                             <label>Por favor, confirma tu orden</label>
-                            <button class="btn btn-success menu-btn" type="button" id="btnConfirmar">
+                            <button type="submit" class="btn btn-success menu-btn">
                                 <i class="fa fa-check-circle" aria-hidden="true"></i> Confirmar
                             </button>
                           </div>
@@ -133,6 +140,7 @@
         		</div>
         		<div class="col-md-3"></div>
         	</div>
+		</form>
         </div>
 
 <p style="color:#A00; font-weight: bold" id="message"></p>
