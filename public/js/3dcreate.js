@@ -3,10 +3,10 @@ var scene;     // The 3D scene that will be rendered, containing the model.
 var camera;    // The camera that takes the picture of the scene.
 var loader
 var model; // The three.js object that represents the model.
-
+var filename;
 var rotateX = 0;   // rotation of model about the x-axis
 var rotateY = 0;  // rotation of model about the y-axis
-
+var object;
 
 function createWorld() {
     var light;  // A light shining from the direction of the camera.
@@ -18,10 +18,10 @@ function createWorld() {
 
 function modelLoadedCallback(geometry, materials) {
    
-    var object = new THREE.Mesh(geometry, new THREE.MeshFaceMaterial(materials));
-
-    /* Determine the ranges of x, y, and z in the vertices of the geometry. */
-
+    object = new THREE.Mesh(geometry, new THREE.MeshFaceMaterial(materials));
+    object.material.materials[0].color.setHex(0xE0FF19);
+    object.geometry.colorsNeedUpdate = true;
+    object.matrixAutoUpdate=false;
     var xmin = Infinity;
     var xmax = -Infinity;
     var ymin = Infinity;
@@ -44,7 +44,7 @@ function modelLoadedCallback(geometry, materials) {
             zmax = v.z;
     }
     
-    /* translate the center of the object to the origin */
+    
     var centerX = (xmin+xmax)/2;
     var centerY = (ymin+ymax)/2; 
     var centerZ = (zmin+zmax)/2;
@@ -53,8 +53,8 @@ function modelLoadedCallback(geometry, materials) {
     max = Math.max(max, Math.max(centerZ - zmin, zmax - centerZ) );
     var scale = 10/max;
     object.position.set( -centerX, -centerY, -centerZ );
-    console.log("Loading finished, scaling object by " + scale);
-    console.log("Center at ( " + centerX + ", " + centerY + ", " + centerZ + " )");
+    //console.log("Loading finished, scaling object by " + scale);
+    //console.log("Center at ( " + centerX + ", " + centerY + ", " + centerZ + " )");
     
     /* Create the wrapper, model, to scale and rotate the object. */
     
@@ -73,6 +73,7 @@ function installModel(file, bgColor) {
     }
     renderer.setClearColor(bgColor);
     render();
+    filename = file;
     loader = new THREE.JSONLoader();
     loader.load("http://127.0.0.1:8000/" + file, modelLoadedCallback);
 }
@@ -82,17 +83,12 @@ function render() {
 }
 
 function changeColor(hexa){
-model.traverse(function(child) {
-    if(child instanceof THREE.Mesh){
-           var faces= child.geometry.faces.length;
-        for ( var i = 0; i < faces; i++ ) {
-            var face = child.geometry.faces[ i ];
-            face.color.setHex(hexa);
-        }
-    }
- });
-
-//model.children[0].material.color.set(hexa);
+object.material.materials[0].color.setHex(hexa);
+object.updateMatrix();
+//alert(model.children[0].material.materials[0].color.r);
+//model.children[0].material.materials[0].color= 0xFF1919;
+//model.children[0].material.materials[0].color.g=25;
+//model.children[0].material.materials[0].color.b=25;
  //model.material.color.setHex(hexa);
 //alert(hexa);
 }

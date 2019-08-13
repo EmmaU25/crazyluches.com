@@ -94,8 +94,8 @@
 						 </button>
 						 <div class="collapse" id="colors">
 						  <div class="card card-body">
-							<button type="button" onclick="changeColor(0x666666)">amarillo</button>
-							  
+							<button type="button" onclick="changeColor(0xFF1932)">Azul</button>
+							  <button type="button" onclick="changeColor(0xFF00DE)">Verde</button>
 						  </div>
 						</div>
         			</div>
