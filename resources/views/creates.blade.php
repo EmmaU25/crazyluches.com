@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Crazyluches.com</title>
-	<link rel="icon" href="http://127.0.0.1:8000/img/monkey.ico">
+	<link rel="icon" href="{{ asset('img/monkey.ico') }}">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/create.css')}}">
 	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -99,6 +99,32 @@
 						  </div>
 						</div>
         			</div>
+
+					                    <div class="opt-menu">
+                        <button class="btn btn-primary menu-btn" type="button" data-toggle="collapse" data-target="#info" aria-expanded="false" aria-controls="colors">
+                            <i class="fa fa-info" aria-hidden="true"></i> Información adicional
+                         </button>
+                         <div class="collapse" id="info">
+                          <div class="card card-body">
+                            <label>¡Cuéntanos que más quieres!</label>
+                            <textarea class="form-control" style="resize: none;" row="3" id="txtMasInfo"></textarea>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="opt-menu" style="margin-top:10px;">
+                        <button class="btn btn-success menu-btn" type="button" data-toggle="collapse" data-target="#enviar" aria-expanded="false" aria-controls="colors">
+                            <i class="fa fa-share-square-o" aria-hidden="true"></i> Enviar orden
+                         </button>
+                         <div class="collapse" id="enviar">
+                          <div class="card card-body">
+                            <label>Por favor, confirma tu orden</label>
+                            <button class="btn btn-success menu-btn" type="button" id="btnConfirmar">
+                                <i class="fa fa-check-circle" aria-hidden="true"></i> Confirmar
+                            </button>
+                          </div>
+                        </div>
+                    </div>
         			
         		</div>
         		<div class="col-md-5">

@@ -11,8 +11,8 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="http://127.0.0.1:8000/css/style.css">
-        <link rel="stylesheet" href="http://127.0.0.1:8000/css/custom-animations.css">
+        <link rel="stylesheet" href="{{ url('css/style.css') }}">
+        <link rel="stylesheet" href="{{ url('css/custom-animations.css') }}">
         
     
         <!-- Styles -->
@@ -114,7 +114,7 @@
         <div class="row mrg-a">
 
             <div class="thumbnail col-md-4 marg-rigt carde-t row">
-              <div class="col-md-6"><img src="http://127.0.0.1:8000/img/persona1.jpg" class="rounded-img"></div><div class="col-md-6">Emma</div>
+              <div class="col-md-6"><img src="{{ url('img/cliente-hombre.png') }}" class="rounded-img"></div><div class="col-md-6">Emma</div>
               <div class="caption">
                 <h3>"Una forma muy creativa"</h3>
                 <p>Es un concepto nuevo de realizar un regalo personalizado además que ofrece una forma fácil de diseñarlo</p>
@@ -122,7 +122,7 @@
             </div>
 
             <div class="thumbnail col-md-4 marg-rigt carde-t row">
-              <div class="col-md-6"><img src="http://127.0.0.1:8000/img/persona2.jpg" class="rounded-img"></div><div class="col-md-6">Rafel alias rafiki</div>
+              <div class="col-md-6"><img src="{{ url('img/cliente-hombre.png') }}" class="rounded-img"></div><div class="col-md-6">Rafel alias rafiki</div>
               <div class="caption">
                 <h3>"Es una plataforma con una idea única"</h3>
                 <p>Es innovador, además ofrece formas de pagos accessibles</p>
@@ -131,7 +131,7 @@
             </div>
 
             <div class="thumbnail col-md-4 carde-t row">
-              <div class="col-md-6"><img src="http://127.0.0.1:8000/img/persona3.jpg" class="rounded-img"></div><div class="col-md-6">Carla</div>
+              <div class="col-md-6"><img src="{{ url('img/cliente-mujer.png') }}" class="rounded-img"></div><div class="col-md-6">Carla</div>
               <div class="caption">
                 <h3>"Me encanta"</h3>
                 <p>Mi novio quedó encantado con el regalo, fue fácil realizar la compra y el envio fue rápido</p>
@@ -152,9 +152,9 @@
              
               <div class="caption">
                 <h3>Estandar</h3>
-                <p class="espacio">desde $<span class="price-txt">100</span>/mxn</p>
+                <p>desde $<span class="price-txt">100</span>/mxn</p>
                 <div class="txt-ce">
-                    <img src="http://127.0.0.1:8000/img/pika.png">
+                    <img src="{{ url('img/Sorprendidov2.png') }}" width="350">
                     <p><a href="/create" class="btn btn-primary" role="button">Ordenar</a></p>
                 </div>
               </div>
@@ -163,7 +163,7 @@
               <div class="caption">
                 <h3>Cotización personalizada</h3>
                 <p >Envianos tu propuesta y nosotros te decimos el precio ;)</p>
-                <div class="txt-ce"><img src="http://127.0.0.1:8000/img/pikapika.png">
+                <div class="txt-ce"><img src="{{ url('img/Jijiv2.png') }}" width="350">
                 <p><a href="/create" class="btn btn-primary back-white" role="button">Ordenar</a></p>
                 </div>
               </div>
